@@ -1,0 +1,138 @@
+.navContainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--bg-gray-dark);
+}
+
+.navLogo {
+  margin: 1rem 2rem;
+  cursor: pointer;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navItem {
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.navItem:hover {
+  color: rgb(179, 179, 179);
+  transition: 0.3s;
+}
+
+.navButton {
+  margin-right: 2rem;
+}
+
+.navCog {
+  color: white;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.userContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.userProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userImage {
+  border-radius: 50%;
+}
+
+.userName {
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.responsive {
+  display: none;
+}
+
+.sideNav {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-gray-dark);
+  transform: translate(100%);
+  transition: all 0.5s ease-in-out;
+  z-index: 9999;
+}
+
+.activeSideNav {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-gray-900);
+  transform: translate(50%);
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.sideNavItem {
+  margin: 2rem 1rem;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.sideNavBtn {
+  margin: 2rem 1rem;
+  padding-top: 2rem;
+  color: var(--bg-green);
+  font-size: 1.6rem;
+}
+
+.sideNavListing {
+  margin: 2rem 1rem;
+  padding-bottom: 2rem;
+  color: var(--bg-green);
+  font-size: 1.6rem;
+}
+
+.sideNavUser {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0rem 1rem;
+}
+
+@media only screen and (max-width: 570px) {
+  .responsive {
+    display: block;
+    margin-right: 2rem;
+    color: #fff;
+  }
+
+  .userContainer,
+  .navButton,
+  .navMenu {
+    display: none;
+  }
+}
