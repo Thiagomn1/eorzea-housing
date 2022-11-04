@@ -7,3 +7,5 @@ declare global {
 }
 
 export {};
+
+declare module 'react-file-base64';

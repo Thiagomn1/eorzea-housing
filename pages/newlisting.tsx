@@ -1,9 +1,13 @@
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
 import { useState } from 'react';
+import { getSession } from 'next-auth/react';
+
 import styles from '../styles/Newlisting.module.css';
 
 function NewListing() {
   const [title, setTitle] = useState('');
+  const [image, setImage] = useState('');
 
   return (
     <>
@@ -100,9 +104,42 @@ function NewListing() {
             </div>
           </div>
         </div>
+
+        <div className="form-group">
+          <label htmlFor="title" className="form-text">
+            <span className="required">* </span> House Image:
+          </label>
+          <input
+            type="text"
+            name="title"
+            value={image}
+            id="title"
+            className="form-input"
+            onChange={(event) => setImage(event.target.value)}
+          />
+        </div>
       </form>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
 
 export default NewListing;
