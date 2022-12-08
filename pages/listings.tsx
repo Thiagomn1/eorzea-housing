@@ -1,8 +1,15 @@
 import Head from 'next/head';
+import { GetServerSideProps } from 'next';
+import { getAllListings } from '../lib/postListing';
+import { House } from '../types/types';
 import styles from '../styles/Listings.module.css';
 import HousingItem from '../components/HousingItem/HousingItem';
 
-function Listings() {
+interface Houses {
+  houses: House[];
+}
+
+function Listings({ houses }: Houses) {
   return (
     <>
       <Head>
@@ -13,16 +20,31 @@ function Listings() {
       <section className={styles.galleryWrapper}>
         <h2 className="title">Listings</h2>
         <ul className="image-gallery">
-          <HousingItem />
-          <HousingItem />
-          <HousingItem />
-          <HousingItem />
-          <HousingItem />
-          <HousingItem />
+          {houses &&
+            houses.length &&
+            houses.map((listing: House) => (
+              <HousingItem key={listing._id} listing={listing} />
+            ))}
         </ul>
       </section>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const allListingsData = await getAllListings();
+  const houses = allListingsData.houses;
+
+  if (!houses) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      houses,
+    },
+  };
+};
 
 export default Listings;

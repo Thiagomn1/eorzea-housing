@@ -11,6 +11,8 @@ function Navbar() {
 
   const [active, setActive] = useState(false);
 
+  console.log(session);
+
   return (
     <>
       <nav className={styles.navContainer}>

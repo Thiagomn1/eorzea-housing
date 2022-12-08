@@ -90,6 +90,14 @@ li {
   margin: 3rem auto;
 }
 
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-input {
   width: 100%;
   min-width: 210px;
@@ -114,6 +122,14 @@ li {
   display: block;
 }
 
+.form-textNumber {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0 1rem;
+  color: white;
+  display: block;
+}
 .radio-label {
   color: #fff;
   font-size: 1.6rem;
@@ -122,6 +138,12 @@ li {
 
 .radio-label:last-child {
   margin-right: 0;
+}
+
+@media only screen and (max-width: 645px) {
+  .form-container {
+    flex-direction: column;
+  }
 }
 
 /* Burger menu */

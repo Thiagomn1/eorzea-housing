@@ -19,6 +19,10 @@
   margin-right: 2rem;
 }
 
+.btnPadding {
+  padding: 1rem 3rem;
+}
+
 @media only screen and (max-width: 1250px) {
   .radioContainer {
     align-items: flex-start;
